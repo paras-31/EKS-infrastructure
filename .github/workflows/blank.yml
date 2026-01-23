@@ -30,11 +30,13 @@ jobs:
         with:
           terraform_version: 1.7.5
       - name: Terraform Init
-        working-directory: ./EKS-infrastructure
-        run: terraform init
+        run: |
+          cd module
+          terraform init
       - name: Terraform plan
-        working-directory: ./EKS-infrastructure
-        run: terraform plan -out=tfplan
+        run: |
+          cd module
+          terraform plan -out=tfplan
   apply:
     needs: Plan
     runs-on: ubuntu-latest
