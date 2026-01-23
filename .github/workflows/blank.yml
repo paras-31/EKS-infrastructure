@@ -55,7 +55,8 @@ jobs:
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.7.6
+          terraform_version: 1.7.5
       - name: Terraform Apply
-        working-directory: ./EKS-infrastructure
-        run: terraform apply -auto-approve tfplan
+        run: |
+          cd module
+          terraform apply -auto-approve tfplan
