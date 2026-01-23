@@ -59,4 +59,5 @@ jobs:
       - name: Terraform Apply
         run: |
           cd module
+          terraform init
           terraform apply -auto-approve
