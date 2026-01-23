@@ -59,4 +59,4 @@ jobs:
       - name: Terraform Apply
         run: |
           cd module
-          terraform apply -auto-approve tfplan
+          terraform apply -auto-approve
