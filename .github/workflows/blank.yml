@@ -1,6 +1,9 @@
 name: EKS Full Cleanup via Pipeline
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -25,7 +28,7 @@ jobs:
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.7.6
+          terraform_version: 1.7.5
       - name: Terraform Init
         working-directory: ./EKS-infrastructure
         run: terraform init
