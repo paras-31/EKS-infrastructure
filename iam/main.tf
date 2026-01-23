@@ -47,20 +47,3 @@ resource "aws_iam_instance_profile" "node_instance_profile" {
   name = "eks-node-instance-profile"
   role = aws_iam_role.node_role.name
 }
-
-
-resource "aws_eks_access_entry" "admin" {
-  cluster_name = aws_eks_cluster.eks.name
-  principal_arn = "arn:aws:iam::000087384605:role/AWSReservedSSO_AVM-AdministratorAccess-d97965"
-  type = "STANDARD"
-}
-
-resource "aws_eks_access_policy_association" "admin_policy" {
-  cluster_name = aws_eks_cluster.eks.name
-  principal_arn = aws_eks_access_entry.admin.principal_arn
-  policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-
-  access_scope {
-    type = "cluster"
-  }
-}
