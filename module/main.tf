@@ -34,8 +34,8 @@ module "iam" {
 module "eks" {
   source            = "../eks"
   cluster_name      = "eksdemo"
-  role_arn          = local.eks_cluster_role_exists ? data.aws_iam_role.eks_cluster_role_existing[0].arn : module.iam.eks_cluster_role
-  node_role_arn     = local.eks_node_role_exists ? data.aws_iam_role.node_role_existing[0].arn : module.iam.eks_node_role
+  role_arn          = local.eks_cluster_role_exists ? data.aws_iam_role.eks_cluster_role_existing[0].arn : module.iam[0].eks_cluster_role
+  node_role_arn     = local.eks_node_role_exists ? data.aws_iam_role.node_role_existing[0].arn : module.iam[0].eks_node_role
   public_subnet_ids = module.vpc.public_subnet_ids
   private_subnet_ids= module.vpc.private_subnet_ids
   depends_on = [ module.iam,module.vpc ]
