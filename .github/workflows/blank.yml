@@ -1,4 +1,4 @@
-name: EKS Full Cleanup via Pipeline
+name: EKS Infra deployment
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::703671929703:role/Github-action-role
+          role-to-assume: arn:aws:iam::243284855400:role/Github-action-role
           role-session-name: samplerolesession
           aws-region: us-east-1
 
@@ -48,7 +48,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::703671929703:role/Github-action-role
+          role-to-assume: arn:aws:iam::243284855400:role/Github-action-role
           role-session-name: samplerolesession
           aws-region: us-east-1
 
